@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKRASC | All Kerala Robotics and Automation Student Conclave</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-200">
+
+    <!-- Header & Navigation -->
+     <header id="header" class="bg-black bg-opacity-50 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gradient-theme">AKRASC</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="about.html" class="hover:text-pink-400 transition">About</a>
+                <a href="events.html" class="hover:text-pink-400 transition">Events</a>
+                <a href="speakers.html" class="hover:text-pink-400 transition">Speakers</a>
+                <a href="schedule.html" class="hover:text-pink-400 transition">Schedule</a>
+                <a href="sponsor.html" class="hover:text-pink-400 transition">Sponsors</a>
+                <a href="faq.html" class="hover:text-pink-400 transition">FAQ</a>
+                <a href="#contact" class="hover:text-pink-400 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu --><div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-center hover:bg-gray-800 rounded">About</a>
+            <a href="#events" class="block py-2 text-center hover:bg-gray-800 rounded">Events</a>
+            <a href="#speakers" class="block py-2 text-center hover:bg-gray-800 rounded">Speakers</a>
+            <a href="#schedule" class="block py-2 text-center hover:bg-gray-800 rounded">Schedule</a>
+            <a href="#sponsors" class="block py-2 text-center hover:bg-gray-800 rounded">Sponsors</a>
+            <a href="#faq" class="block py-2 text-center hover:bg-gray-800 rounded">FAQ</a>
+            <a href="#contact" class="block py-2 text-center hover:bg-gray-800 rounded">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section --><section id="home" class="min-h-screen flex items-center pt-24">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 animate-fade-in-down">
+                    <span class="text-gradient-theme">All Kerala Robotics and Automation</span><br/>Student Conclave
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Presented by IEEE RAS Kerala Chapter. A premier event for students, researchers, and industry professionals to innovate, collaborate, and shape the future of robotics.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="#" class="bg-gradient-theme text-white font-bold py-3 px-8 rounded-full hover:scale-105 transform transition-transform duration-300">
+                        Register Now
+                    </a>
+                    <a href="#schedule" class="bg-gray-700 bg-opacity-50 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-600 transition-colors duration-300">
+                        View Schedule
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section --><section id="about" class="py-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">About <span class="text-gradient-theme">AKRASC</span></h2>
+                    <p class="text-gray-400 mt-2">Innovate. Integrate. Inspire.</p>
+                </div>
+                <div class="max-w-4xl mx-auto text-center text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        AKRASC is the flagship event of the IEEE Robotics and Automation Society (RAS) Kerala Chapter, designed to bring together the brightest young minds in the field. This conclave serves as a dynamic platform for students to showcase their talents, learn from leading experts, and network with peers and industry professionals. Through a series of workshops, competitions, and talks, we aim to foster a culture of innovation and collaboration in robotics and automation across Kerala.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section --><section id="events" class="py-20 bg-black bg-opacity-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">What to <span class="text-gradient-theme">Expect</span></h2>
+                    <p class="text-gray-400 mt-2">Engage in a variety of exciting events.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Event Card 1 --><div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-pink-400 mb-4 inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 18.5 21 12l-6.5-6.5"/><path d="m3 12h18"/></svg></div>
+                        <h3 class="text-xl font-bold mb-2">Keynote Sessions</h3>
+                        <p class="text-gray-400">Learn from pioneers and visionaries in the field of robotics.</p>
+                    </div>
+                    <!-- Event Card 2 --><div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-pink-400 mb-4 inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h6"/><path d="m18 16-4-4 4-4"/><path d="m14 12 h-11"/></svg></div>
+                        <h3 class="text-xl font-bold mb-2">Workshops</h3>
+                        <p class="text-gray-400">Get hands-on experience with the latest technologies and tools.</p>
+                    </div>
+                    <!-- Event Card 3 --><div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-pink-400 mb-4 inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <h3 class="text-xl font-bold mb-2">Competitions</h3>
+                        <p class="text-gray-400">Showcase your skills and compete for exciting prizes.</p>
+                    </div>
+                    <!-- Event Card 4 --><div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                         <div class="text-pink-400 mb-4 inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M12 11v-1"/><path d="M12 16h.01"/></svg></div>
+                        <h3 class="text-xl font-bold mb-2">Project Expo</h3>
+                        <p class="text-gray-400">Exhibit your innovative projects to a wider audience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speakers Section --><section id="speakers" class="py-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Keynote <span class="text-gradient-theme">Speakers</span></h2>
+                    <p class="text-gray-400 mt-2">Insights from industry leaders and academic experts.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Speaker Card 1 --><div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center">
+                        <img src="https://placehold.co/200x200/EC4899/FFFFFF?text=Speaker+1" alt="Speaker 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-pink-500">
+                        <h3 class="text-xl font-bold">Dr. Evelyn Reed</h3>
+                        <p class="text-pink-400">AI & Robotics Researcher</p>
+                        <p class="text-gray-400 mt-2 text-sm">Leading expert in machine learning applications for autonomous systems.</p>
+                    </div>
+                    <!-- Speaker Card 2 --><div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center">
+                        <img src="https://placehold.co/200x200/8B5CF6/FFFFFF?text=Speaker+2" alt="Speaker 2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-purple-500">
+                        <h3 class="text-xl font-bold">Marcus Chen</h3>
+                        <p class="text-purple-400">CEO, Automata Inc.</p>
+                        <p class="text-gray-400 mt-2 text-sm">Visionary entrepreneur revolutionizing industrial automation.</p>
+                    </div>
+                    <!-- Speaker Card 3 --><div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center">
+                        <img src="https://placehold.co/200x200/A78BFA/FFFFFF?text=Speaker+3" alt="Speaker 3" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                        <h3 class="text-xl font-bold">Dr. Anita Sharma</h3>
+                        <p class="text-indigo-300">Professor, IIT Madras</p>
+                        <p class="text-gray-400 mt-2 text-sm">Renowned academic with extensive research in human-robot interaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section --><section id="schedule" class="py-20 bg-black bg-opacity-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Event <span class="text-gradient-theme">Schedule</span></h2>
+                    <p class="text-gray-400 mt-2">Plan your day at AKRASC.</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative border-l-2 border-pink-500 pl-8">
+                        <!-- Schedule Item 1 --><div class="mb-8">
+                            <div class="absolute w-4 h-4 bg-pink-500 rounded-full -left-2 mt-1.5"></div>
+                            <p class="font-bold text-pink-400">09:00 AM - 10:00 AM</p>
+                            <h3 class="text-xl font-semibold">Inauguration & Welcome Address</h3>
+                            <p class="text-gray-400">Official opening of the conclave.</p>
+                        </div>
+                        <!-- Schedule Item 2 --><div class="mb-8">
+                            <div class="absolute w-4 h-4 bg-pink-500 rounded-full -left-2 mt-1.5"></div>
+                            <p class="font-bold text-pink-400">10:00 AM - 11:30 AM</p>
+                            <h3 class="text-xl font-semibold">Keynote by Dr. Evelyn Reed</h3>
+                            <p class="text-gray-400">"The Future of AI in Autonomous Robotics."</p>
+                        </div>
+                        <!-- Schedule Item 3 --><div class="mb-8">
+                            <div class="absolute w-4 h-4 bg-pink-500 rounded-full -left-2 mt-1.5"></div>
+                            <p class="font-bold text-pink-400">11:30 AM - 01:00 PM</p>
+                            <h3 class="text-xl font-semibold">Workshop on ROS</h3>
+                            <p class="text-gray-400">Hands-on session on Robot Operating System.</p>
+                        </div>
+                        <!-- Schedule Item 4 --><div class="mb-8">
+                            <div class="absolute w-4 h-4 bg-pink-500 rounded-full -left-2 mt-1.5"></div>
+                            <p class="font-bold text-pink-400">02:00 PM - 04:00 PM</p>
+                            <h3 class="text-xl font-semibold">Robotics Competition Finals</h3>
+                            <p class="text-gray-400">Witness the final rounds of the flagship competition.</p>
+                        </div>
+                         <!-- Schedule Item 5 --><div class="mb-8">
+                            <div class="absolute w-4 h-4 bg-pink-500 rounded-full -left-2 mt-1.5"></div>
+                            <p class="font-bold text-pink-400">04:00 PM - 05:00 PM</p>
+                            <h3 class="text-xl font-semibold">Closing Ceremony & Prize Distribution</h3>
+                            <p class="text-gray-400">Concluding the event and awarding the winners.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sponsors Section --><section id="sponsors" class="py-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Our <span class="text-gradient-theme">Sponsors</span></h2>
+                    <p class="text-gray-400 mt-2">We are grateful for the support of our partners.</p>
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-8">
+                    <img src="https://placehold.co/150x80/FFFFFF/1D0F30?text=Sponsor+1" alt="Sponsor 1" class="opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/150x80/FFFFFF/1D0F30?text=Sponsor+2" alt="Sponsor 2" class="opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/150x80/FFFFFF/1D0F30?text=Sponsor+3" alt="Sponsor 3" class="opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/150x80/FFFFFF/1D0F30?text=Sponsor+4" alt="Sponsor 4" class="opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/150x80/FFFFFF/1D0F30?text=Sponsor+5" alt="Sponsor 5" class="opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section --><section id="faq" class="py-20 bg-black bg-opacity-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Frequently Asked <span class="text-gradient-theme">Questions</span></h2>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 --><div class="bg-gray-800 bg-opacity-50 rounded-lg">
+                        <button class="faq-question w-full text-left flex justify-between items-center p-5 font-semibold">
+                            <span>Who can attend AKRASC?</span>
+                            <span class="transform transition-transform duration-300">&#9662;</span>
+                        </button>
+                        <div class="faq-answer px-5 pb-5 text-gray-400">
+                            <p>AKRASC is open to all undergraduate and postgraduate students, researchers, academicians, and industry professionals with an interest in robotics and automation.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 --><div class="bg-gray-800 bg-opacity-50 rounded-lg">
+                        <button class="faq-question w-full text-left flex justify-between items-center p-5 font-semibold">
+                            <span>Is there a registration fee?</span>
+                             <span class="transform transition-transform duration-300">&#9662;</span>
+                        </button>
+                        <div class="faq-answer px-5 pb-5 text-gray-400">
+                            <p>Yes, there is a nominal registration fee to cover event expenses. Please check the 'Register Now' section for detailed fee structure for students and professionals.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 --><div class="bg-gray-800 bg-opacity-50 rounded-lg">
+                        <button class="faq-question w-full text-left flex justify-between items-center p-5 font-semibold">
+                            <span>Where will the event be held?</span>
+                            <span class="transform transition-transform duration-300">&#9662;</span>
+                        </button>
+                        <div class="faq-answer px-5 pb-5 text-gray-400">
+                            <p>The event venue is [Your Venue Here, e.g., TKM College of Engineering, Kollam]. Please check the contact section for a map and directions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section --><section id="contact" class="py-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Get In <span class="text-gradient-theme">Touch</span></h2>
+                     <p class="text-gray-400 mt-2">We'd love to hear from you.</p>
+                </div>
+                <div class="max-w-lg mx-auto text-center">
+                    <p class="text-lg mb-2">For any inquiries, please email us at:</p>
+                    <a href="mailto:contact.akrasc@ieee.org" class="text-xl text-pink-400 hover:underline">contact.akrasc@ieee.org</a>
+                    <p class="mt-8 mb-2">Venue:</p>
+                    <p class="text-lg">[Your Venue Name and Address Here]</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer --><footer class="bg-black bg-opacity-30 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2024 AKRASC | All Rights Reserved</p>
+            <p class="mt-2">An initiative by <a href="#" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
+            <!-- Social Media Icons would go here --></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
