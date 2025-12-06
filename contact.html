@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | AKRASC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-gray-200">
+
+<body class="text-gray-200">
+
+    <div id="particle-canvas"></div>
+
+    <header id="header" class="bg-black bg-opacity-50 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+           <a href="#" class="flex items-center space-x-3">
+            <img src="./img/IEEE RAS WHITE[1].png" alt="Logo" class="w-40">
+            <img src="./img/akrasc_logo[1].png" alt="Logo" class="w-40">
+           </a>
+          <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="hover:text-pink-400 transition font-bold">About</a>
+                <a href="#eventsection" class="hover:text-pink-400 transition font-bold">Events</a>
+                <a href="#" class="hover:text-pink-400 transition font-bold">Leaderboard</a>
+                <a href="contact.html" class="hover:text-pink-400 transition font-bold">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+        <a href="index.html#about" class="block py-2 text-center hover:bg-gray-800 rounded">About</a>
+        <a href="index.html#events" class="block py-2 text-center hover:bg-gray-800 rounded">Events</a>
+        <a href="index.html#leaderboard" class="block py-2 text-center hover:bg-gray-800 rounded">Leaderboard</a>
+        <a href="contact.html" class="block py-2 text-center hover:bg-gray-800 rounded">Contact</a>
+    </div>
+</header>
+
+<main class="pt-28">
+
+    <!-- Contact Header -->
+    <section class="py-20 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient-theme">Meet Our Team</h1>
+        <p class="text-gray-400 mb-8">Reach out to our team members directly via email or LinkedIn.</p>
+    </section>
+
+    <!-- Team Members 2x2 Grid -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+
+                <!-- Member 1 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:-translate-y-2 transition-transform duration-300">
+                    <img src="./images/arun.jpeg" alt="Dr.Arun Peethambaram" class="w-28 h-28 rounded-full mb-4 object-cover border-2 border-pink-400">
+                    <h5 class="text-xl font-bold mb-1 text-white">Dr.Arun Peethambaram</h5>
+                    <p class="text-gray-300 mb-4">Chair, IEEE RAS Kerala Chapter</p>
+                    <div class="flex gap-4">
+                        <a href="mailto:arun@sjcetpalai.ac.in" class="bg-pink-400 text-black font-semibold py-2 px-4 rounded hover:bg-pink-500 transition">Email</a>
+                        <a href="https://www.linkedin.com/in/arun-peethambaran-232a33150/" target="_blank" class="bg-gray-700 text-white font-semibold py-2 px-4 rounded hover:bg-gray-600 transition">LinkedIn</a>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:-translate-y-2 transition-transform duration-300">
+                    <img src="./images/arjun.jpg" alt="Arjun S Nair" class="w-28 h-28 rounded-full mb-4 object-cover border-2 border-pink-400">
+                    <h5 class="text-xl font-bold mb-1 text-white">Arjun S Nair</h5>
+                    <p class="text-gray-300 mb-4">Student Representative, IEEE RAS Kerala Chapter</p>
+                    <div class="flex gap-4">
+                        <a href="mailto:arjunsnair271003@gmail.com" class="bg-pink-400 text-black font-semibold py-2 px-4 rounded hover:bg-pink-500 transition">Email</a>
+                        <a href="https://www.linkedin.com/in/arjunsnair03/" target="_blank" class="bg-gray-700 text-white font-semibold py-2 px-4 rounded hover:bg-gray-600 transition">LinkedIn</a>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:-translate-y-2 transition-transform duration-300">
+                    <img src="./images/rinza.png" alt="Rinza Yunus" class="w-28 h-28 rounded-full mb-4 object-cover border-2 border-pink-400">
+                    <h5 class="text-xl font-bold mb-1 text-white">Rinza Yunus</h5>
+                    <p class="text-gray-300 mb-4">Webmaster, IEEE RAS Kerala Chapter</p>
+                    <div class="flex gap-4">
+                        <a href="mailto:ryunus2022@gmail.com" class="bg-pink-400 text-black font-semibold py-2 px-4 rounded hover:bg-pink-500 transition">Email</a>
+                        <a href="https://www.linkedin.com/in/ryunus2022/" target="_blank" class="bg-gray-700 text-white font-semibold py-2 px-4 rounded hover:bg-gray-600 transition">LinkedIn</a>
+                    </div>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col items-center hover:-translate-y-2 transition-transform duration-300">
+                    <img src="./images/rio.png" alt="Rio Roy" class="w-28 h-28 rounded-full mb-4 object-cover border-2 border-pink-400">
+                    <h5 class="text-xl font-bold mb-1 text-white">Rio Roy</h5>
+                    <p class="text-gray-300 mb-4">Technical Coordinator,IEEE RAS Kerala Chapter</p>
+                    <div class="flex gap-4">
+                        <a href="mailto:rio7roy@gmail.com" class="bg-pink-400 text-black font-semibold py-2 px-4 rounded hover:bg-pink-500 transition">Email</a>
+                        <a href="https://www.linkedin.com/in/rio-roy/" target="_blank" class="bg-gray-700 text-white font-semibold py-2 px-4 rounded hover:bg-gray-600 transition">LinkedIn</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-black bg-opacity-30 py-8 mt-12">
+    <div class="container mx-auto px-6 text-center text-gray-400">
+        <p>&copy; 2025 AKRASC | All Rights Reserved</p>
+        <p class="mt-2">An initiative by <a href="https://ras.ieeekerala.org/" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
