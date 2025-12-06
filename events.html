@@ -11,7 +11,6 @@
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- Your custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-black text-gray-200">
@@ -30,7 +29,8 @@
       <a href="contact.html" class="hover:text-pink-400 transition font-bold">Contact</a>
     </nav>
     <button id="mobile-menu-button" class="md:hidden p-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
         <line x1="4" y1="6" x2="20" y2="6"/>
         <line x1="4" y1="12" x2="20" y2="12"/>
         <line x1="4" y1="18" x2="20" y2="18"/>
@@ -50,60 +50,14 @@
   <!-- Events Header -->
   <section class="py-20 text-center">
     <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient-theme">Our Events</h1>
-    <p class="text-gray-400 mb-8">Check out the initiatives and activities conducted by AKRASC</p>
+    <p class="text-gray-400 mb-8">Posters of events conducted by AKRASC</p>
   </section>
 
-  <!-- Events Grid -->
+  <!-- Poster Grid -->
   <section class="py-12">
     <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <!-- Event 1 -->
-        <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up">
-          <img src="images/event1.jpeg" alt="Event 1" class="rounded-xl mb-4 object-cover w-full h-48">
-          <h3 class="text-xl font-bold mb-2 text-white">Git & GitHub Bootcamp</h3>
-          <p class="text-gray-300 mb-4">
-            A hands-on workshop introducing the fundamentals of drone design, compacting, and flight control.
-          </p>
-          <div class="flex gap-2 mt-auto justify-end">
-            <a href="https://forms.gle/XLPG5UD4mNeCYNU36" target="_blank" class="px-3 py-1 text-sm font-bold text-white bg-blue-600 rounded hover:bg-blue-700 transition">
-              Register
-            </a>
-            <!-- <span class="px-3 py-1 text-sm font-bold text-white rounded bg-green-500">Open</span> -->
-            <span class="px-3 py-1 text-sm font-bold text-white rounded bg-red-500">Closed</span>
-          </div>
-        </div>
-
-        <!-- Event 2 -->
-        <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
-          <img src="images/event2.jpeg" alt="Event 2" class="rounded-xl mb-4 object-cover w-full h-48">
-          <h3 class="text-xl font-bold mb-2 text-white">Path Planning & Control of Mobile Robots ROS2</h3>
-          <p class="text-gray-300 mb-4">
-            Annual robotics summit focusing on the intersection of AI and automation.
-          </p>
-          <div class="flex gap-2 mt-auto justify-end">
-            <a href="https://tinyurl.com/ROS-TWO" target="_blank" class="px-3 py-1 text-sm font-bold text-white bg-blue-600 rounded hover:bg-blue-700 transition">
-              Register
-            </a>
-            <span class="px-3 py-1 text-sm font-bold text-white rounded bg-green-500">Open</span> 
-          </div>
-        </div>
-
-        <!-- Event 3 
-        <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-          <img src="images/event3.jpg" alt="Event 3" class="rounded-xl mb-4 object-cover w-full h-48">
-          <h3 class="text-xl font-bold mb-2 text-white">Tech Talks</h3>
-          <p class="text-gray-300 mb-4">
-            Interactive sessions featuring experts in embedded systems, VLSI, and intelligent automation.
-          </p>
-          <div class="flex gap-2 mt-auto justify-end">
-            <a href="https://example.com/register3" target="_blank" class="px-3 py-1 text-sm font-bold text-white bg-blue-600 rounded hover:bg-blue-700 transition">
-              Register
-            </a>
-            <span class="px-3 py-1 text-sm font-bold text-white rounded bg-green-500">Open</span>
-          </div>
-        </div> -->
-
+      <div id="poster-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Posters auto-added with JS -->
       </div>
     </div>
   </section>
@@ -114,17 +68,45 @@
 <footer class="bg-black bg-opacity-30 py-8 mt-12 text-center text-gray-400">
   <div class="container mx-auto px-6">
     <p>&copy; 2025 AKRASC | All Rights Reserved</p>
-    <p class="mt-2">An initiative by <a href="#" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
+    <p class="mt-2">An initiative by <a href="https://ras.ieeekerala.org/" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
   </div>
 </footer>
 
 <!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+<!-- Dynamic Poster Loader -->
+<script>
+const posterGrid = document.getElementById("poster-grid");
+
+// 1–50 allowed → scale without limit
+const maxPosters = 50;
+
+for (let i = 1; i <= maxPosters; i++) {
+    const imgPath = `images/AK_${i}.jpg`;
+
+    // Create image object to verify if exists
+    const img = new Image();
+    img.src = imgPath;
+
+    img.onload = () => {
+        // Poster exists → add automatically
+        const card = document.createElement("div");
+        card.className =
+          "bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-4 hover:-translate-y-2 transition-transform duration-300";
+        card.setAttribute("data-aos", "fade-up");
+
+        card.innerHTML = `
+            <img src="${imgPath}" class="rounded-xl object-cover w-full h-72 mb-4" alt="Event Poster ${i}">
+            <h3 class="text-center text-lg font-semibold text-white">Event Poster ${i}</h3>
+        `;
+
+        posterGrid.appendChild(card);
+    };
+}
 </script>
 
 </body>
