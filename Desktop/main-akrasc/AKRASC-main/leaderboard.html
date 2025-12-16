@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKRASC | Leaderboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .text-gradient-theme {
+            background: linear-gradient(90deg, #ff6a00, #ee0979);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rank-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .rank-card:hover {
+            transform: scale(1.05);
+        }
+
+        .college-logo {
+            background-color: #ffffff20;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto;
+        }
+
+        .other-rank-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+        }
+    </style>
+</head>
+<body class="text-gray-200 bg-gray-900">
+
+    <!-- Header -->
+    <header id="header" class="bg-black bg-opacity-50 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="./img/PHOTO-2025-10-20-22-24-16.jpg" alt="Logo" class="w-8 h-8 rounded-full object-cover">
+                <span class="text-2xl font-bold text-gradient-theme">AKRASC</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html#about" class="hover:text-pink-400 transition">About</a>
+                <a href="index.html#events" class="hover:text-pink-400 transition">Events</a>
+                <a href="leaderboard.html" class="hover:text-pink-400 transition font-bold">Leaderboard</a>
+                <a href="contact.html" class="hover:text-pink-400 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="index.html#about" class="block py-2 text-center hover:bg-gray-800 rounded">About</a>
+            <a href="index.html#events" class="block py-2 text-center hover:bg-gray-800 rounded">Events</a>
+            <a href="leaderboard.html" class="block py-2 text-center hover:bg-gray-800 rounded font-bold">Leaderboard</a>
+            <a href="contact.html" class="block py-2 text-center hover:bg-gray-800 rounded">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        <section class="py-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Points <span class="text-gradient-theme">Leaderboard</span></h2>
+                    <p class="text-gray-400 mt-2">See who's leading the conclave!</p>
+                </div>
+
+                <!-- Podium for Top 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end max-w-5xl mx-auto">
+                    <div class="rank-card order-2 md:order-1" id="rank-2">
+                        <div class="college-logo">2</div>
+                        <h3 class="text-xl font-bold mt-4">TKMCE, Kollam</h3>
+                        <p class="text-2xl font-bold text-gray-300">1250 PTS</p>
+                    </div>
+
+                    <div class="rank-card order-1 md:order-2 md:scale-110" id="rank-1">
+                        <div class="college-logo">1</div>
+                        <h3 class="text-2xl font-bold mt-4">CET, Trivandrum</h3>
+                        <p class="text-3xl font-bold text-white">1500 PTS</p>
+                    </div>
+
+                    <div class="rank-card order-3 md:order-3" id="rank-3">
+                        <div class="college-logo">3</div>
+                        <h3 class="text-xl font-bold mt-4">MEC, Kochi</h3>
+                        <p class="text-2xl font-bold text-gray-300">1100 PTS</p>
+                    </div>
+                </div>
+
+                <!-- Other Top Contenders -->
+                <div class="max-w-3xl mx-auto mt-16">
+                    <h4 class="text-2xl font-bold text-center mb-6">Other Top Contenders</h4>
+                    <div class="space-y-3">
+                        <div class="other-rank-item">
+                            <span class="font-bold text-lg">#4</span>
+                            <span class="text-lg">College of Engineering, Adoor</span>
+                            <span class="font-semibold text-gray-300">980 PTS</span>
+                        </div>
+                        <div class="other-rank-item">
+                            <span class="font-bold text-lg">#5</span>
+                            <span class="text-lg">NIT Calicut</span>
+                            <span class="font-semibold text-gray-300">950 PTS</span>
+                        </div>
+                        <div class="other-rank-item">
+                            <span class="font-bold text-lg">#6</span>
+                            <span class="text-lg">GEC Thrissur</span>
+                            <span class="font-semibold text-gray-300">920 PTS</span>
+                        </div>
+                        <div class="other-rank-item">
+                            <span class="font-bold text-lg">#7</span>
+                            <span class="text-lg">RIT Kottayam</span>
+                            <span class="font-semibold text-gray-300">890 PTS</span>
+                        </div>
+                        <div class="other-rank-item">
+                            <span class="font-bold text-lg">#8</span>
+                            <span class="text-lg">IIIT Kottayam</span>
+                            <span class="font-semibold text-gray-300">850 PTS</span>
+                        </div>
+                        <div class="other-rank-item">
+                            <span class="font-bold text-lg">#9</span>
+                            <span class="text-lg">Amrita School of Engineering</span>
+                            <span class="font-semibold text-gray-300">810 PTS</span>
+                        </div>
+                        <div class="other-rank-item">
+                            <span class="font-bold text-lg">#10</span>
+                            <span class="text-lg">CUSAT</span>
+                            <span class="font-semibold text-gray-300">780 PTS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-30 py-8 mt-20">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 AKRASC | All Rights Reserved</p>
+            <p class="mt-2">An initiative by <a href="#" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
