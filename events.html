@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events | AKRASC</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-black text-gray-200">
+
+<!-- Navbar -->
+<header id="header" class="bg-black bg-opacity-50 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center space-x-3">
+      <img src="./img/PHOTO-2025-10-20-22-24-16.jpg" alt="Logo" class="w-8 h-8 rounded-full object-cover">
+      <span class="text-2xl font-bold text-gradient-theme">AKRASC</span>
+    </a>
+    <nav class="hidden md:flex space-x-8 items-center">
+      <a href="index.html#about" class="hover:text-pink-400 transition">About</a>
+      <a href="index.html#events" class="hover:text-pink-400 transition">Events</a>
+      <a href="index.html#leaderboard" class="hover:text-pink-400 transition">Leaderboard</a>
+      <a href="contact.html" class="hover:text-pink-400 transition font-bold">Contact</a>
+    </nav>
+    <button id="mobile-menu-button" class="md:hidden p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="6" x2="20" y2="6"/>
+        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="4" y1="18" x2="20" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+    <a href="index.html" class="block py-2 text-center hover:bg-gray-800 rounded">About</a>
+    <a href="index.html" class="block py-2 text-center hover:bg-gray-800 rounded">Events</a>
+    <a href="index.html" class="block py-2 text-center hover:bg-gray-800 rounded">Leaderboard</a>
+    <a href="contact.html" class="block py-2 text-center hover:bg-gray-800 rounded">Contact</a>
+  </div>
+</header>
+
+<main class="pt-28">
+
+  <!-- Events Header -->
+  <section class="py-20 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient-theme">Our Events</h1>
+    <p class="text-gray-400 mb-8">Posters of events conducted by AKRASC</p>
+  </section>
+
+  <!-- Poster Grid -->
+  <section class="py-12">
+    <div class="container mx-auto px-6">
+      <div id="poster-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Posters auto-added with JS -->
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-black bg-opacity-30 py-8 mt-12 text-center text-gray-400">
+  <div class="container mx-auto px-6">
+    <p>&copy; 2025 AKRASC | All Rights Reserved</p>
+    <p class="mt-2">An initiative by <a href="https://ras.ieeekerala.org/" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
+  </div>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+<!-- Dynamic Poster Loader -->
+<script>
+const posterGrid = document.getElementById("poster-grid");
+
+// 1–50 allowed → scale without limit
+const maxPosters = 50;
+
+for (let i = 1; i <= maxPosters; i++) {
+    const imgPath = `images/AK_${i}.jpg`;
+
+    // Create image object to verify if exists
+    const img = new Image();
+    img.src = imgPath;
+
+    img.onload = () => {
+        // Poster exists → add automatically
+        const card = document.createElement("div");
+        card.className =
+          "bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-4 hover:-translate-y-2 transition-transform duration-300";
+        card.setAttribute("data-aos", "fade-up");
+
+        card.innerHTML = `
+            <img src="${imgPath}" class="rounded-xl object-cover w-full h-72 mb-4" alt="Event Poster ${i}">
+            <h3 class="text-center text-lg font-semibold text-white">Event Poster ${i}</h3>
+        `;
+
+        posterGrid.appendChild(card);
+    };
+}
+</script>
+
+</body>
+</html>

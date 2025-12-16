@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKRASC | All Kerala Robotics and Automation Society Conclave</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-200">
+
+    <div id="particle-canvas"></div>
+
+    <header id="header" class="bg-black bg-opacity-50 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+           <a href="#" class="flex items-center space-x-3">
+            <img src="./img/IEEE RAS WHITE[1].png" alt="Logo" class="w-40">
+            <img src="./img/akrasc_logo[1].png" alt="Logo" class="w-40">
+           </a>
+          <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="hover:text-pink-400 transition font-bold">About</a>
+                <a href="#eventsection" class="hover:text-pink-400 transition font-bold">Events</a>
+                <a href="#" class="hover:text-pink-400 transition font-bold">Leaderboard</a>
+                <a href="contact.html" class="hover:text-pink-400 transition font-bold">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-center hover:bg-gray-800 rounded font-bold">About</a>
+            <a href="#eventsection" class="block py-2 text-center hover:bg-gray-800 rounded font-bold">Events</a>
+            <a href="#" class="block py-2 text-center hover:bg-gray-800 rounded font-bold">Leaderboard</a>
+            <a href="contact.html" class="block py-2 text-center hover:bg-gray-800 rounded font -bolded">Contact</a>
+        </div>
+    </header>
+
+<main>
+        
+        <section id="home" class="min-h-screen flex items-center pt-24">
+          <div class="container mx-auto px-6 text-center">
+              <!-- Make sure the path 'img/ROBO.png' is correct -->
+              <img src="img/ROBO.png" alt="AKRASC Robot Mascot" class="w-60 md:w-68 mx-auto mb-6 robot-float">
+
+                
+   <h1 id="wave-title" class="animated-title-container font-extrabold mb-4 text-center tracking-tight">
+
+    <!-- All -->
+    <span style="animation-delay:0s">A</span>
+    <span style="animation-delay:0.05s">l</span>
+    <span style="animation-delay:0.1s">l</span>
+    <span style="animation-delay:0.15s">&nbsp;</span>
+
+    <!-- Kerala -->
+    <span style="animation-delay:0.2s">K</span>
+    <span style="animation-delay:0.25s">e</span>
+    <span style="animation-delay:0.3s">r</span>
+    <span style="animation-delay:0.35s">a</span>
+    <span style="animation-delay:0.4s">l</span>
+    <span style="animation-delay:0.45s">a</span>
+    <span style="animation-delay:0.5s">&nbsp;</span>
+
+    <!-- Robotics -->
+    <span style="animation-delay:0.55s">R</span>
+    <span style="animation-delay:0.6s">o</span>
+    <span style="animation-delay:0.65s">b</span>
+    <span style="animation-delay:0.7s">o</span>
+    <span style="animation-delay:0.75s">t</span>
+    <span style="animation-delay:0.8s">i</span>
+    <span style="animation-delay:0.85s">c</span>
+    <span style="animation-delay:0.9s">s</span>
+    <span style="animation-delay:0.95s">&nbsp;</span>
+
+    <!-- and -->
+    <span style="animation-delay:1s">a</span>
+    <span style="animation-delay:1.05s">n</span>
+    <span style="animation-delay:1.1s">d</span>
+    <span style="animation-delay:1.15s">&nbsp;</span>
+
+    
+    <!-- Automation -->
+    <span style="animation-delay:1.4s">A</span>
+    <span style="animation-delay:1.45s">u</span>
+    <span style="animation-delay:1.5s">t</span>
+    <span style="animation-delay:1.55s">o</span>
+    <span style="animation-delay:1.6s">m</span>
+    <span style="animation-delay:1.7s">a</span>
+    <span style="animation-delay:1.75s">t</span>
+    <span style="animation-delay:1.8s">i</span>
+    <span style="animation-delay:1.85s">o</span>
+    <span style="animation-delay:1.9s">n</span>
+    <span style="animation-delay:2.0s">&nbsp;</span>
+
+    <!-- Student -->
+    <span style="animation-delay:2.05s">S</span>
+    <span style="animation-delay:2.1s">o</span>
+    <span style="animation-delay:2.15s">c</span>
+    <span style="animation-delay:2.20s">i</span>
+    <span style="animation-delay:2.25s">e</span>
+    <span style="animation-delay:2.3s">t</span>
+    <span style="animation-delay:2.35s">y</span>
+    <span style="animation-delay:2.4s">&nbsp;</span>
+
+    <!-- Conclave -->
+    <span style="animation-delay:2.15s">C</span>
+    <span style="animation-delay:2.2s">o</span>
+    <span style="animation-delay:2.25s">n</span>
+    <span style="animation-delay:2.3s">c</span>
+    <span style="animation-delay:2.35s">l</span>
+    <span style="animation-delay:2.4s">a</span>
+    <span style="animation-delay:2.45s">v</span>
+    <span style="animation-delay:2.5s">e</span>
+    <span style="animation-delay:2.55s">&nbsp;</span>
+
+     <span style="animation-delay:1.2s">3</span>
+    <span style="animation-delay:1.25s">.0</span>
+
+</h1>
+
+
+              <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                  Presented by IEEE RAS Kerala Chapter. A premier event for students, researchers, and industry professionals to innovate, collaborate, and shape the future of robotics.
+              </p>
+              <div class="flex justify-center gap-4">
+                  <a href="#eventsection" class="bg-gradient-theme text-white font-bold py-3 px-8 rounded-full hover:scale-105 transform transition-transform duration-300">
+                      Register Now
+                  </a>
+              </div>
+          </div>
+        </section>
+
+        <section id="about" class="py-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">About <span class="text-gradient-theme">AKRASC 3.0</span></h2>
+                    <p class="text-gray-400 mt-2">Innovate. Integrate. Inspire.</p>
+                </div>
+                <div class="max-w-4xl mx-auto text-center text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        AKRASC, the All Kerala Robotics and Automation Society Conclave, presented by the IEEE RAS Kerala Chapter, is a premier series of events focused on the ever-evolving world of robotics and automation. Curated and led by trailblazers in the field, AKRASC brings together passionate minds—from curious students to emerging professionals—for an immersive experience in cutting-edge technologies.
+                        Each session dives deep into the latest innovations, research breakthroughs, and real-world applications in robotics and automation, offering participants both technical insights and inspiration. AKRASC isn't just about learning—it's about building a collaborative community that drives forward-thinking ideas and empowers the next generation of tech leaders.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="py-20 bg-black bg-opacity-20 section-fade-in">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">What to <span class="text-gradient-theme">Expect</span></h2>
+                    <p class="text-gray-400 mt-2">Engage in a variety of exciting events.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-pink-400 mb-4 inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 18.5 21 12l-6.5-6.5"/><path d="m3 12h18"/></svg></div>
+                        <h3 class="text-xl font-bold mb-2">Talk Sessions</h3>
+                        <p class="text-gray-400">Learn from pioneers and visionaries in the field of robotics.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-pink-400 mb-4 inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h6"/><path d="m18 16-4-4 4-4"/><path d="m14 12 h-11"/></svg></div>
+                        <h3 class="text-xl font-bold mb-2">Workshops</h3>
+                        <p class="text-gray-400">Get hands-on experience with the latest technologies and tools.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="text-pink-400 mb-4 inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <h3 class="text-xl font-bold mb-2">Competitions</h3>
+                        <p class="text-gray-400">Showcase your skills and compete for exciting prizes.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                         <div class="text-pink-400 mb-4 inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M12 11v-1"/><path d="M12 16h.01"/></svg></div>
+                        <h3 class="text-xl font-bold mb-2">Other events</h3>
+                        <p class="text-gray-400">Innovative and insightful events</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section (from events.html) -->
+        <section id="eventsection" class="py-20 events-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6" data-aos="fade-up">Our Events</h2>
+                <p class="text-gray-400 text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+                    A glimpse into the initiatives and activities conducted by AKRASC
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Event 1 -->
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/event1.jpeg" alt="Event 1" class="rounded-xl mb-4 object-cover w-full h-48">
+                        <h3 class="text-xl font-bold mb-2 text-white">Git & GitHub Bootcamp</h3>
+                        <p class="text-gray-300 mb-4">
+                            A hands-on workshop introducing the fundamentals of drone design, compacting, and flight control.
+                        </p>
+                        <div class="flex gap-2 mt-auto justify-end">
+                            <a href="https://forms.gle/XLPG5UD4mNeCYNU36" target="_blank" class="px-3 py-1 text-sm font-bold text-white bg-blue-600 rounded hover:bg-blue-700 transition">Register</a>
+                            <span class="px-3 py-1 text-sm font-bold text-white rounded bg-red-500">Closed</span>
+                        </div>
+                    </div>
+                    <!-- Event 2 -->
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-6 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/event2.jpeg" alt="Event 2" class="rounded-xl mb-4 object-cover w-full h-48">
+                        <h3 class="text-xl font-bold mb-2 text-white">Path Planning & Control of Mobile Robots ROS2</h3>
+                        <p class="text-gray-300 mb-4">
+                            Annual robotics summit focusing on the intersection of AI and automation.
+                        </p>
+                        <div class="flex gap-2 mt-auto justify-end">
+                            <a href="https://tinyurl.com/ROS-TWO" target="_blank" class="px-3 py-1 text-sm font-bold text-white bg-blue-600 rounded hover:bg-blue-700 transition">Register</a>
+                            <span class="px-3 py-1 text-sm font-bold text-white rounded bg-green-500">Open</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</main>
+
+<footer id="contact" class="bg-black bg-opacity-30 py-8">
+    <div class="container mx-auto px-6 text-center text-gray-400">
+        <p>&copy; 2025 AKRASC | All Rights Reserved</p>
+        <p class="mt-2">An initiative by <a href="https://ras.ieeekerala.org/" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
+    </div>
+</footer>
+
+<!-- JavaScript for animated title -->
+<script>
+  const title = document.getElementById("wave-title");
+  const text = title.textContent;
+  title.textContent = ""; // Clear original text
+
+  // Wrap each character in a span
+  text.split("").forEach((char, index) => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.animationDelay = `${index * 0.08}s`; // staggered wave effect
+    title.appendChild(span);
+  });
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
