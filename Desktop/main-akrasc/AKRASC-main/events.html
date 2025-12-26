@@ -1,113 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Events | AKRASC</title>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Events | AKRASC 3.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .poster-card {
+            background: rgba(17, 24, 39, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .poster-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #05d9e8;
+            box-shadow: 0 0 20px rgba(5, 217, 232, 0.2);
+        }
+        .poster-card img {
+            transition: transform 0.3s;
+        }
+        .poster-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
-<body class="bg-black text-gray-200">
 
-<!-- Navbar -->
-<header id="header" class="bg-black bg-opacity-50 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="index.html" class="flex items-center space-x-3">
-      <img src="./img/PHOTO-2025-10-20-22-24-16.jpg" alt="Logo" class="w-8 h-8 rounded-full object-cover">
-      <span class="text-2xl font-bold text-gradient-theme">AKRASC</span>
-    </a>
-    <nav class="hidden md:flex space-x-8 items-center">
-      <a href="index.html#about" class="hover:text-pink-400 transition">About</a>
-      <a href="index.html#events" class="hover:text-pink-400 transition">Events</a>
-      <a href="index.html#leaderboard" class="hover:text-pink-400 transition">Leaderboard</a>
-      <a href="contact.html" class="hover:text-pink-400 transition font-bold">Contact</a>
-    </nav>
-    <button id="mobile-menu-button" class="md:hidden p-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <line x1="4" y1="6" x2="20" y2="6"/>
-        <line x1="4" y1="12" x2="20" y2="12"/>
-        <line x1="4" y1="18" x2="20" y2="18"/>
-      </svg>
-    </button>
-  </div>
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-    <a href="index.html" class="block py-2 text-center hover:bg-gray-800 rounded">About</a>
-    <a href="index.html" class="block py-2 text-center hover:bg-gray-800 rounded">Events</a>
-    <a href="index.html" class="block py-2 text-center hover:bg-gray-800 rounded">Leaderboard</a>
-    <a href="contact.html" class="block py-2 text-center hover:bg-gray-800 rounded">Contact</a>
-  </div>
-</header>
+<body class="text-gray-200 antialiased">
+    <!-- BACKGROUND LAYERS -->
+    <div class="cyber-grid-bg"></div>
+    <div class="bg-overlay"></div>
 
-<main class="pt-28">
-
-  <!-- Events Header -->
-  <section class="py-20 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient-theme">Our Events</h1>
-    <p class="text-gray-400 mb-8">Posters of events conducted by AKRASC</p>
-  </section>
-
-  <!-- Poster Grid -->
-  <section class="py-12">
-    <div class="container mx-auto px-6">
-      <div id="poster-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Posters auto-added with JS -->
-      </div>
+    <div class="data-stream-layer">
+        <div class="data-line" style="top: 20%; width: 150px; animation-duration: 4s; animation-delay: 0s;"></div>
+        <div class="data-line" style="top: 65%; width: 250px; animation-duration: 6s; animation-delay: 2s;"></div>
     </div>
-  </section>
 
-</main>
+    <canvas id="neural-canvas"></canvas>
 
-<!-- Footer -->
-<footer class="bg-black bg-opacity-30 py-8 mt-12 text-center text-gray-400">
-  <div class="container mx-auto px-6">
-    <p>&copy; 2025 AKRASC | All Rights Reserved</p>
-    <p class="mt-2">An initiative by <a href="https://ras.ieeekerala.org/" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
-  </div>
-</footer>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <button id="close-menu" class="absolute top-6 right-6 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="events.html" class="mobile-link text-[#05d9e8]" style="text-shadow: 0 0 10px #05d9e8;">Events</a>
+        <a href="leaderboard.html" class="mobile-link">Leaderboard</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
 
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
+    <!-- HEADER -->
+    <header id="header" class="navbar fixed top-0 left-0 right-0 z-50 h-20">
+        <div class="container mx-auto px-6 flex justify-between items-center h-full">
+            <a href="index.html" class="flex items-center space-x-3 z-50">
+                <img src="./img/akrasc_logo[1].png" alt="Logo" class="w-28 md:w-32">
+                <img src="./img/IEEE RAS WHITE[1].png" alt="Logo" class="w-28 md:w-32">
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="events.html" class="text-[#05d9e8]" style="text-shadow: 0 0 8px #05d9e8;">EVENTS</a>
+                <a href="leaderboard.html">LEADERBOARD</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
 
-<!-- Dynamic Poster Loader -->
-<script>
-const posterGrid = document.getElementById("poster-grid");
+            <button id="mobile-menu-button" class="md:hidden p-2 text-white z-50">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
 
-// 1–50 allowed → scale without limit
-const maxPosters = 50;
+    <main class="pt-24 pb-20">
+        
+        <!-- TITLE -->
+        <section class="container mx-auto px-6 mb-16 text-center pt-10">
+            <h1 class="glitch-title mb-4" data-text="OUR EVENTS">OUR EVENTS</h1>
+            <p class="text-gray-400 font-['Rajdhani'] text-lg md:text-xl tracking-widest uppercase">
+                // Archives: Official AKRASC Protocol Logs
+            </p>
+        </section>
 
-for (let i = 1; i <= maxPosters; i++) {
-    const imgPath = `images/AK_${i}.jpg`;
+        <!-- POSTER GRID -->
+        <section class="container mx-auto px-6">
+            <div id="poster-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pb-10">
+                <!-- Posters dynamically injected here -->
+            </div>
+        </section>
 
-    // Create image object to verify if exists
-    const img = new Image();
-    img.src = imgPath;
+    </main>
 
-    img.onload = () => {
-        // Poster exists → add automatically
-        const card = document.createElement("div");
-        card.className =
-          "bg-gray-800 bg-opacity-50 rounded-xl shadow-lg p-4 hover:-translate-y-2 transition-transform duration-300";
-        card.setAttribute("data-aos", "fade-up");
+    <footer id="contact" class="py-10 bg-black bg-opacity-80 border-t border-gray-900">
+        <div class="container mx-auto px-6 text-center text-gray-500 font-['Rajdhani']">
+            <p class="text-lg">&copy; 2025 AKRASC | SYSTEM ONLINE</p>
+            <p class="mt-2 text-sm">IEEE RAS Kerala Chapter</p>
+        </div>
+    </footer>
 
-        card.innerHTML = `
-            <img src="${imgPath}" class="rounded-xl object-cover w-full h-72 mb-4" alt="Event Poster ${i}">
-            <h3 class="text-center text-lg font-semibold text-white">Event Poster ${i}</h3>
-        `;
+    <script>
+        // --- 1. SHARED SCRIPT (Particles & Menu) ---
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+        
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize);
+        resize();
 
-        posterGrid.appendChild(card);
-    };
-}
-</script>
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width; this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.5 ? '#05d9e8' : '#ff2a6d'; 
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color; ctx.fill();
+            }
+        }
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
 
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach((p, index) => {
+                p.update(); p.draw();
+                for (let j = index + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x; const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(100, 100, 255, ${1 - dist / 150})`;
+                        ctx.lineWidth = 0.5; ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
+                }
+                if (mouse.x != null) {
+                    const dx = p.x - mouse.x; const dy = p.y - mouse.y; const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 200) {
+                        ctx.beginPath(); ctx.strokeStyle = `rgba(255, 42, 109, ${1 - dist / 200})`;
+                        ctx.lineWidth = 0.8; ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const closeBtn = document.getElementById('close-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        function toggleMenu() {
+            overlay.classList.toggle('active');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
+
+        // --- 2. DYNAMIC POSTER LOADER (ORDERED) ---
+        const posterGrid = document.getElementById("poster-grid");
+        const maxPosters = 50;
+
+        // Create placeholders first to maintain order
+        for (let i = 1; i <= maxPosters; i++) {
+            const slot = document.createElement("div");
+            slot.id = `poster-slot-${i}`;
+            slot.style.display = 'none'; // Hidden until loaded
+            posterGrid.appendChild(slot);
+
+            const imgPath = `images/AK_${i}.jpg`;
+            const img = new Image();
+            img.src = imgPath;
+
+            img.onload = () => {
+                const card = document.getElementById(`poster-slot-${i}`);
+                if (card) {
+                    card.className = "poster-card bg-gray-900/40 rounded-xl overflow-hidden group section-fade-in opacity-0 translate-y-4";
+                    card.style.display = 'block'; // Show it
+                    
+                    card.innerHTML = `
+                        <div class="relative overflow-hidden aspect-[3/4]">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                            <img src="${imgPath}" class="w-full h-full object-cover" alt="Event Poster ${i}">
+                            <div class="absolute bottom-0 left-0 w-full p-4 z-20">
+                                <div class="w-full h-px bg-gradient-to-r from-[#05d9e8] to-transparent mb-2"></div>
+                                 <h3 class="text-white text-lg font-['Orbitron'] font-bold tracking-wide">EVENT <span class="text-[#05d9e8]">#${i}</span></h3>
+                            </div>
+                        </div>
+                    `;
+                    observer.observe(card);
+                }
+            };
+
+            img.onerror = () => {
+                // Remove the slot so there are no empty gaps
+                const card = document.getElementById(`poster-slot-${i}`);
+                if (card) card.remove();
+            };
+        }
+    </script>
 </body>
 </html>

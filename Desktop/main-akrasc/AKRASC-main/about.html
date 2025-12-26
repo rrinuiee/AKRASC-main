@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About | AKRASC 3.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-gray-200 antialiased">
+
+    <!-- BACKGROUND LAYERS -->
+    <div class="cyber-grid-bg"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="data-stream-layer">
+        <div class="data-line" style="top: 15%; width: 150px; animation-duration: 3s; animation-delay: 0s;"></div>
+        <div class="data-line" style="top: 45%; width: 200px; animation-duration: 5s; animation-delay: 2s;"></div>
+        <div class="data-line" style="top: 70%; width: 100px; animation-duration: 4s; animation-delay: 1s;"></div>
+        <div class="data-line" style="top: 85%; width: 250px; animation-duration: 6s; animation-delay: 3s;"></div>
+        <div class="data-line" style="top: 30%; width: 120px; animation-duration: 7s; animation-delay: 1.5s;"></div>
+    </div>
+
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <button id="close-menu" class="absolute top-6 right-6 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="about.html" class="mobile-link text-[#05d9e8]" style="text-shadow: 0 0 10px #05d9e8;">About</a>
+        <a href="events.html" class="mobile-link">Events</a>
+        <a href="leaderboard.html" class="mobile-link">Leaderboard</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header" class="navbar fixed top-0 left-0 right-0 z-50 h-20">
+        <div class="container mx-auto px-6 flex justify-between items-center h-full">
+            <a href="index.html" class="flex items-center space-x-3 z-50">
+                <img src="./img/akrasc_logo[1].png" alt="Logo" class="w-28 md:w-32">
+                <img src="./img/IEEE RAS WHITE[1].png" alt="Logo" class="w-28 md:w-32">
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html">HOME</a>
+                <a href="about.html" class="text-[#05d9e8]" style="text-shadow: 0 0 8px #05d9e8;">ABOUT</a>
+                <a href="events.html">EVENTS</a>
+                <a href="leaderboard.html">LEADERBOARD</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden p-2 text-white z-50">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-20">
+        
+        <!-- HERO SECTION -->
+        <section class="container mx-auto px-6 mb-20">
+            <div class="text-center mt-10 md:mt-20 section-fade-in">
+                <h1 class="glitch-title mb-4" data-text="ABOUT AKRASC">ABOUT AKRASC</h1>
+                <p class="text-gray-400 font-['Rajdhani'] text-lg md:text-xl tracking-widest uppercase">
+                    Unlocking the Future of Automation
+                </p>
+            </div>
+        </section>
+
+        <!-- MAIN CONTENT -->
+        <section class="container mx-auto px-6 section-fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content Column -->
+                <div class="space-y-8">
+                    <!-- First Paragraph Card -->
+                    <div class="bg-gray-900/40 border border-gray-700/50 backdrop-blur-md p-8 rounded-2xl relative overflow-hidden group hover:border-[#ff2a6d]/50 transition-colors duration-300">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-[#ff2a6d] shadow-[0_0_15px_#ff2a6d]"></div>
+                        <h3 class="text-2xl font-['Orbitron'] font-bold text-white mb-4">The <span class="text-[#ff2a6d]">Conclave</span></h3>
+                        <p class="text-gray-300 text-lg leading-relaxed font-['Rajdhani'] text-justify">
+                            <span class="text-[#05d9e8] font-bold">AKRASC</span>, the All Kerala Robotics and Automation Society Conclave, presented by the <span class="text-[#ff2a6d]">IEEE RAS Kerala Chapter</span>, is a premier series of events focused on the ever-evolving world of robotics and automation. Curated and led by trailblazers in the field, AKRASC brings together passionate minds—from curious students to emerging professionals—for an immersive experience in cutting-edge technologies.
+                        </p>
+                    </div>
+
+                    <!-- Second Paragraph Card -->
+                    <div class="bg-gray-900/40 border border-gray-700/50 backdrop-blur-md p-8 rounded-2xl relative overflow-hidden group hover:border-[#05d9e8]/50 transition-colors duration-300 delay-100">
+                        <div class="absolute top-0 right-0 w-1 h-full bg-[#05d9e8] shadow-[0_0_15px_#05d9e8]"></div>
+                        <h3 class="text-2xl font-['Orbitron'] font-bold text-white mb-4">Our <span class="text-[#05d9e8]">Mission</span></h3>
+                        <p class="text-gray-300 text-lg leading-relaxed font-['Rajdhani'] text-justify">
+                            Each session dives deep into the latest innovations, research breakthroughs, and real-world applications in robotics and automation, offering participants both technical insights and inspiration. AKRASC isn't just about learning—it's about building a collaborative community that drives forward-thinking ideas and empowers the next generation of tech leaders.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual/Info Column -->
+                <div class="grid grid-cols-1 gap-6">
+                     <!-- 3 Pillars -->
+                    <div class="bg-black/30 p-6 rounded-xl border border-gray-800 hover:bg-gray-900/50 transition duration-300 flex items-center gap-4 group">
+                        <div class="p-4 bg-purple-900/20 rounded-lg text-purple-400 group-hover:scale-110 transition-transform">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-['Orbitron'] font-bold text-white">Innovate</h4>
+                            <p class="text-gray-400 font-['Rajdhani'] text-sm">Pushing boundaries with novel ideas.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 p-6 rounded-xl border border-gray-800 hover:bg-gray-900/50 transition duration-300 flex items-center gap-4 group">
+                        <div class="p-4 bg-cyan-900/20 rounded-lg text-[#05d9e8] group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-['Orbitron'] font-bold text-white">Integrate</h4>
+                            <p class="text-gray-400 font-['Rajdhani'] text-sm">Merging disciplines for smarter systems.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 p-6 rounded-xl border border-gray-800 hover:bg-gray-900/50 transition duration-300 flex items-center gap-4 group">
+                        <div class="p-4 bg-pink-900/20 rounded-lg text-[#ff2a6d] group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-['Orbitron'] font-bold text-white">Inspire</h4>
+                            <p class="text-gray-400 font-['Rajdhani'] text-sm">Empowering the next generation.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Join Community Graphic Placeholder or simple call out -->
+                    <div class="mt-4 p-1 rounded-2xl bg-gradient-to-r from-purple-500 via-[#ff2a6d] to-[#05d9e8]">
+                        <div class="bg-black rounded-xl p-6 text-center h-full flex flex-col justify-center items-center">
+                             <h4 class="text-lg font-['Orbitron'] font-bold text-white mb-2">JOIN THE REVOLUTION</h4>
+                             <p class="text-gray-300 font-['Rajdhani'] mb-4 text-sm">Be part of the premier robotics community in Kerala.</p>
+                             <a href="contact.html" class="px-6 py-2 border border-[#05d9e8] text-[#05d9e8] rounded hover:bg-[#05d9e8]/10 transition font-['Orbitron'] text-xs tracking-wider uppercase">Contact Us</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="py-10 bg-black bg-opacity-80 border-t border-gray-900">
+        <div class="container mx-auto px-6 text-center text-gray-500 font-['Rajdhani']">
+            <p class="text-lg">&copy; 2025 AKRASC | SYSTEM ONLINE</p>
+            <p class="mt-2">IEEE RAS Kerala Chapter</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. PARTICLE NETWORK ANIMATION (Shared Script) ---
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        const particleCount = 60; 
+        const connectionDistance = 150;
+        
+        // Mouse tracking
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; 
+                this.vy = (Math.random() - 0.5) * 0.5; 
+                this.size = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.5 ? '#05d9e8' : '#ff2a6d'; 
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        // Initialize particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach((p, index) => {
+                p.update();
+                p.draw();
+
+                // Draw connections
+                for (let j = index + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(100, 100, 255, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+
+                // Connect to mouse
+                if (mouse.x != null) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 200) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255, 42, 109, ${1 - distance / 200})`; 
+                        ctx.lineWidth = 0.8;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+
+        // --- 2. MOBILE MENU & FADE-IN ---
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const closeBtn = document.getElementById('close-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            overlay.classList.toggle('active');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Intersection Observer for Fade In
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
