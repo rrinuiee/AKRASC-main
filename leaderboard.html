@@ -2,164 +2,261 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AKRASC | Leaderboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Leaderboard | AKRASC 3.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
     <style>
-        .text-gradient-theme {
-            background: linear-gradient(90deg, #ff6a00, #ee0979);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         .rank-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s;
+            background: rgba(17, 24, 39, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
-
         .rank-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+        }
+        
+        /* Rank 1 Specifics */
+        .rank-1-card {
+            border-color: rgba(5, 217, 232, 0.5);
+            box-shadow: 0 0 30px rgba(5, 217, 232, 0.2);
+        }
+        .rank-1-card:hover {
+            box-shadow: 0 0 50px rgba(5, 217, 232, 0.4);
         }
 
-        .college-logo {
-            background-color: #ffffff20;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin: 0 auto;
+        /* Rank 2 & 3 Specifics */
+        .rank-2-card, .rank-3-card {
+            border-color: rgba(255, 42, 109, 0.4);
+        }
+        .rank-2-card:hover, .rank-3-card:hover {
+            box-shadow: 0 0 30px rgba(255, 42, 109, 0.2);
         }
 
-        .other-rank-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 1rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 0.75rem;
+        .list-item-glass {
+            background: rgba(5, 5, 5, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+        .list-item-glass:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #05d9e8;
+            transform: scale(1.01);
         }
     </style>
 </head>
-<body class="text-gray-200 bg-gray-900">
 
-    <!-- Header -->
-    <header id="header" class="bg-black bg-opacity-50 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3">
-                <img src="./img/PHOTO-2025-10-20-22-24-16.jpg" alt="Logo" class="w-8 h-8 rounded-full object-cover">
-                <span class="text-2xl font-bold text-gradient-theme">AKRASC</span>
+<body class="text-gray-200 antialiased">
+    <!-- BACKGROUND LAYERS -->
+    <div class="cyber-grid-bg"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="data-stream-layer">
+        <div class="data-line" style="top: 15%; width: 150px; animation-duration: 3s; animation-delay: 0s;"></div>
+        <div class="data-line" style="top: 85%; width: 250px; animation-duration: 6s; animation-delay: 3s;"></div>
+    </div>
+
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <button id="close-menu" class="absolute top-6 right-6 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="events.html" class="mobile-link">Events</a>
+        <a href="leaderboard.html" class="mobile-link text-[#05d9e8]" style="text-shadow: 0 0 10px #05d9e8;">Leaderboard</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header" class="navbar fixed top-0 left-0 right-0 z-50 h-20">
+        <div class="container mx-auto px-6 flex justify-between items-center h-full">
+            <a href="index.html" class="flex items-center space-x-3 z-50">
+                <img src="./img/akrasc_logo[1].png" alt="Logo" class="w-28 md:w-32">
+                <img src="./img/IEEE RAS WHITE[1].png" alt="Logo" class="w-28 md:w-32">
             </a>
+            
             <nav class="hidden md:flex space-x-8 items-center">
-                <a href="index.html#about" class="hover:text-pink-400 transition">About</a>
-                <a href="index.html#events" class="hover:text-pink-400 transition">Events</a>
-                <a href="leaderboard.html" class="hover:text-pink-400 transition font-bold">Leaderboard</a>
-                <a href="contact.html" class="hover:text-pink-400 transition">Contact</a>
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="events.html">EVENTS</a>
+                <a href="leaderboard.html" class="text-[#05d9e8]" style="text-shadow: 0 0 8px #05d9e8;">LEADERBOARD</a>
+                <a href="contact.html">CONTACT</a>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+
+            <button id="mobile-menu-button" class="md:hidden p-2 text-white z-50">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="index.html#about" class="block py-2 text-center hover:bg-gray-800 rounded">About</a>
-            <a href="index.html#events" class="block py-2 text-center hover:bg-gray-800 rounded">Events</a>
-            <a href="leaderboard.html" class="block py-2 text-center hover:bg-gray-800 rounded font-bold">Leaderboard</a>
-            <a href="contact.html" class="block py-2 text-center hover:bg-gray-800 rounded">Contact</a>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="pt-24">
-        <section class="py-20 section-fade-in">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold">Points <span class="text-gradient-theme">Leaderboard</span></h2>
-                    <p class="text-gray-400 mt-2">See who's leading the conclave!</p>
+    <main class="pt-24 pb-20">
+        
+        <!-- TITLE -->
+        <section class="container mx-auto px-6 mb-16 text-center pt-10">
+            <h1 class="glitch-title mb-4" data-text="LEADERBOARD">LEADERBOARD</h1>
+            <p class="text-gray-400 font-['Rajdhani'] text-lg md:text-xl tracking-widest uppercase">
+                // Tracking Top Performance Metrics
+            </p>
+        </section>
+
+        <!-- PODIUM -->
+        <section class="container mx-auto px-6 mb-20 section-fade-in">
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end max-w-5xl mx-auto">
+                
+                <!-- Rank 2 -->
+                <div class="rank-card rank-2-card order-2 md:order-1 p-8 rounded-2xl text-center relative">
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center font-bold text-black border-2 border-white shadow-lg z-10 font-['Orbitron']">2</div>
+                    <h3 class="text-xl font-['Orbitron'] font-bold text-white mt-4 mb-2">Federal Institute of Science & Technology</h3>
+                    <p class="text-sm font-['Rajdhani'] text-gray-400 mb-4">Angamaly</p>
+                    <div class="text-3xl font-bold text-[#ff2a6d] font-['Orbitron']">463 <span class="text-sm text-gray-500">PTS</span></div>
                 </div>
 
-                <!-- Podium for Top 3 -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end max-w-5xl mx-auto">
-                    <div class="rank-card order-2 md:order-1" id="rank-2">
-                        <div class="college-logo">2</div>
-                        <h3 class="text-xl font-bold mt-4">TKMCE, Kollam</h3>
-                        <p class="text-2xl font-bold text-gray-300">1250 PTS</p>
-                    </div>
-
-                    <div class="rank-card order-1 md:order-2 md:scale-110" id="rank-1">
-                        <div class="college-logo">1</div>
-                        <h3 class="text-2xl font-bold mt-4">CET, Trivandrum</h3>
-                        <p class="text-3xl font-bold text-white">1500 PTS</p>
-                    </div>
-
-                    <div class="rank-card order-3 md:order-3" id="rank-3">
-                        <div class="college-logo">3</div>
-                        <h3 class="text-xl font-bold mt-4">MEC, Kochi</h3>
-                        <p class="text-2xl font-bold text-gray-300">1100 PTS</p>
-                    </div>
+                <!-- Rank 1 -->
+                <div class="rank-card rank-1-card order-1 md:order-2 p-10 rounded-2xl text-center relative transform md:-translate-y-8 z-10 bg-gray-900/60">
+                     <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-yellow-300 to-yellow-600 rounded-full flex items-center justify-center font-bold text-black border-2 border-white shadow-[0_0_20px_rgba(234,179,8,0.5)] z-10 text-2xl font-['Orbitron']">1</div>
+                     <div class="absolute top-0 left-0 w-full h-1 bg-[#05d9e8] shadow-[0_0_15px_#05d9e8]"></div>
+                    <img src="./img/crown.png" onerror="this.style.display='none'" class="w-12 mx-auto mb-2 opacity-80" alt="Crown">
+                    <h3 class="text-2xl md:text-3xl font-['Orbitron'] font-bold text-white mt-4 mb-2">University College of Engineering</h3>
+                    <p class="text-base font-['Rajdhani'] text-gray-400 mb-6">Kariavattom</p>
+                    <div class="text-4xl md:text-5xl font-bold text-[#05d9e8] font-['Orbitron'] drop-shadow-[0_0_5px_rgba(5,217,232,0.8)]">503</div>
+                    <div class="text-sm text-gray-500 font-['Orbitron'] mt-1">TOTAL POINTS</div>
                 </div>
 
-                <!-- Other Top Contenders -->
-                <div class="max-w-3xl mx-auto mt-16">
-                    <h4 class="text-2xl font-bold text-center mb-6">Other Top Contenders</h4>
-                    <div class="space-y-3">
-                        <div class="other-rank-item">
-                            <span class="font-bold text-lg">#4</span>
-                            <span class="text-lg">College of Engineering, Adoor</span>
-                            <span class="font-semibold text-gray-300">980 PTS</span>
-                        </div>
-                        <div class="other-rank-item">
-                            <span class="font-bold text-lg">#5</span>
-                            <span class="text-lg">NIT Calicut</span>
-                            <span class="font-semibold text-gray-300">950 PTS</span>
-                        </div>
-                        <div class="other-rank-item">
-                            <span class="font-bold text-lg">#6</span>
-                            <span class="text-lg">GEC Thrissur</span>
-                            <span class="font-semibold text-gray-300">920 PTS</span>
-                        </div>
-                        <div class="other-rank-item">
-                            <span class="font-bold text-lg">#7</span>
-                            <span class="text-lg">RIT Kottayam</span>
-                            <span class="font-semibold text-gray-300">890 PTS</span>
-                        </div>
-                        <div class="other-rank-item">
-                            <span class="font-bold text-lg">#8</span>
-                            <span class="text-lg">IIIT Kottayam</span>
-                            <span class="font-semibold text-gray-300">850 PTS</span>
-                        </div>
-                        <div class="other-rank-item">
-                            <span class="font-bold text-lg">#9</span>
-                            <span class="text-lg">Amrita School of Engineering</span>
-                            <span class="font-semibold text-gray-300">810 PTS</span>
-                        </div>
-                        <div class="other-rank-item">
-                            <span class="font-bold text-lg">#10</span>
-                            <span class="text-lg">CUSAT</span>
-                            <span class="font-semibold text-gray-300">780 PTS</span>
-                        </div>
-                    </div>
+                <!-- Rank 3 -->
+                <div class="rank-card rank-3-card order-3 md:order-3 p-8 rounded-2xl text-center relative">
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-800 rounded-full flex items-center justify-center font-bold text-white border-2 border-white shadow-lg z-10 font-['Orbitron']">3</div>
+                    <h3 class="text-xl font-['Orbitron'] font-bold text-white mt-4 mb-2">College of Engineering, Cherthala</h3>
+                    <p class="text-sm font-['Rajdhani'] text-gray-400 mb-4">Cherthala</p>
+                    <div class="text-3xl font-bold text-[#ff2a6d] font-['Orbitron']">299 <span class="text-sm text-gray-500">PTS</span></div>
                 </div>
             </div>
         </section>
+
+        <!-- LIST VIEW -->
+        <section class="container mx-auto px-6 max-w-4xl section-fade-in">
+            <h4 class="text-2xl font-['Orbitron'] font-bold text-center mb-8 text-gray-300">TOP <span class="text-[#05d9e8]">CONTENDERS</span></h4>
+            
+            <div class="space-y-4 font-['Rajdhani']">
+                <!-- Item 4 -->
+                <div class="list-item-glass p-4 rounded-xl flex items-center justify-between group">
+                    <div class="flex items-center gap-6">
+                        <span class="text-xl font-bold text-gray-500 w-8 text-center font-['Orbitron'] group-hover:text-[#05d9e8]">04</span>
+                        <div class="h-8 w-px bg-gray-700"></div>
+                        <span class="text-lg text-gray-200 font-bold group-hover:text-white transition">MITS</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-400 font-['Orbitron'] group-hover:text-[#ff2a6d]">261 PTS</span>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="list-item-glass p-4 rounded-xl flex items-center justify-between group">
+                    <div class="flex items-center gap-6">
+                        <span class="text-xl font-bold text-gray-500 w-8 text-center font-['Orbitron'] group-hover:text-[#05d9e8]">05</span>
+                        <div class="h-8 w-px bg-gray-700"></div>
+                        <span class="text-lg text-gray-200 font-bold group-hover:text-white transition">GEC, Thrissur</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-400 font-['Orbitron'] group-hover:text-[#ff2a6d]">115 PTS</span>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black bg-opacity-30 py-8 mt-20">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2025 AKRASC | All Rights Reserved</p>
-            <p class="mt-2">An initiative by <a href="#" class="text-pink-400 hover:underline">IEEE RAS Kerala Chapter</a></p>
+    <footer id="contact" class="py-10 bg-black bg-opacity-80 border-t border-gray-900">
+        <div class="container mx-auto px-6 text-center text-gray-500 font-['Rajdhani']">
+            <p class="text-lg">&copy; 2025 AKRASC | SYSTEM ONLINE</p>
+            <p class="mt-2">IEEE RAS Kerala Chapter</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // --- Shared Scripts (copied for standalone functionality) ---
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+        
+        // Mouse tracking
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width; this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.5 ? '#05d9e8' : '#ff2a6d'; 
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color; ctx.fill();
+            }
+        }
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach((p, index) => {
+                p.update(); p.draw();
+                for (let j = index + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x; const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(100, 100, 255, ${1 - dist / 150})`;
+                        ctx.lineWidth = 0.5; ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
+                }
+                if (mouse.x != null) {
+                    const dx = p.x - mouse.x; const dy = p.y - mouse.y; const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 200) {
+                        ctx.beginPath(); ctx.strokeStyle = `rgba(255, 42, 109, ${1 - dist / 200})`;
+                        ctx.lineWidth = 0.8; ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const closeBtn = document.getElementById('close-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        function toggleMenu() {
+            overlay.classList.toggle('active');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Fade In
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.section-fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/rasieeekerala/akrasc.ras.ieeekerala.org
-    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -R . $DEPLOYPATH
